@@ -5,10 +5,28 @@ const RecipeSchema = new mongoose.Schema({
     author: String,
     ingredients: [{
       name: String,
-      quantity: Number,
+      quantity: String,
       unit: String
     }],
     instructions: String,
+    rating: {
+        type : Number,
+        min : 1,
+        max : 5,
+        default : 0
+    },
+    totalRating : {
+        type : Number,
+        default : 0
+    },
+    comments: [
+        {
+            name : String,
+            desc : String
+
+        }
+
+    ],
     difficulty_level: String,
     cuisine: String,
     created_at: Date,
